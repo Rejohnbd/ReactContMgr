@@ -5,10 +5,10 @@ class Contact extends React.Component {
     render() { 
         return (
             <div>
-                <h4>Rejohn</h4>
+                <h4>{this.props.name}</h4>
                 <ul>
-                    <li>Email: rejohn@gmail.com</li>
-                    <li>Phone: 01717546533</li>
+                    <li>Email: {this.props.email}</li>
+                    <li>Phone: {this.props.phone}</li>
                 </ul>
             </div>
         );

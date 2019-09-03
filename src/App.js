@@ -7,9 +7,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Contact />
-      <Contact />
+      <Header branding="Contact Manager" />
+      <Contact 
+        name="Rejohn"
+        email="rejohn@gmail.com"
+        phone="01717546533"
+      />
+      <Contact 
+        name="Atik"
+        email="atik@gmail.com"
+        phone="01552607608"
+      />
     </div>
   );
 }
