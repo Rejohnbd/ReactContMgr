@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Contact extends React.Component {
 
     state = {
-        showContactInfo: true
+        showContactInfo: false
     }
 
     onShowClick = () => {
