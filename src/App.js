@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Contact from './components/Contact';
 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
