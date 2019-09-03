@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Contact extends React.Component {
-    state = {  }
+    
+    static propTypes =  {
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired
+    }
+
     render() {
         const { name, email, phone } = this.props;
         return (
@@ -15,5 +22,11 @@ class Contact extends React.Component {
         );
     }
 }
+
+// Contact.propTypes = {
+//     name: PropTypes.string.isRequired,
+//     email: PropTypes.string.isRequired,
+//     phone: PropTypes.string.isRequired
+// }
  
 export default Contact;
