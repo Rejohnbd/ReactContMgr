@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Header = (props) => {
+    const { branding } = props
     return (
-        <h1>{props.branding}</h1>
+        <h1>{branding}</h1>
     );
 }
  
