@@ -1,6 +1,8 @@
 import React from 'react';
-import Header from './components/Header';
-import Contacts from './components/Contacts';
+import Header from './components/layout/Header';
+import Contacts from './components/contacts/Contacts';
+// import UnControlComponent from './components/contacts/UnControlComponent';
+import AddContact from './components/contacts/AddContact';
 
 import { Provider } from './context';
 
@@ -13,6 +15,8 @@ function App() {
       <div className="App">
         <Header branding="Contact Manager" />
         <div className="container">
+          {/* <UnControlComponent /> */}
+          <AddContact />
           <Contacts />
         </div>
       </div>
