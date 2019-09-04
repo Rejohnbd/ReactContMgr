@@ -1,8 +1,8 @@
 import React from 'react';
-import uuid from 'uuid';
-import axios from 'axios';
+
+
 import TextInputGroup from '../layout/TextInputGroup'
-import { Consumer } from '../../context';
+
 
 class AddContact extends React.Component {
     state = {
@@ -12,9 +12,7 @@ class AddContact extends React.Component {
         errors: {}
     }
 
-    // onNameChange = (e) => {
-    //     this.setState({ name: e.target.value })
-    // }
+    
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -43,10 +41,7 @@ class AddContact extends React.Component {
             email,
             phone 
         }
-        
-        const res = await axios.post('https://jsonplaceholder.typicode.com/users', newContact);
 
-        dispatch({ type: 'ADD_CONTACT', payload: res.data })
         
         // Clear State
         this.setState({
@@ -63,14 +58,11 @@ class AddContact extends React.Component {
         const { name, email, phone, errors }  = this.state;
 
         return (
-            <Consumer>
-                {value => {
-                    const { dispatch } = value;
-                    return (
+            
                         <div className="card mb-3">
                             <div className="card-header">Add Contact</div>
                                 <div className="card-body">
-                                    <form onSubmit={this.onSubmit.bind(this, dispatch)}>
+                                    <form onSubmit={this.onSubmit.bind(this)}>
                                         <TextInputGroup
                                             label="Name"
                                             type="text"
@@ -102,9 +94,7 @@ class AddContact extends React.Component {
                                     </form>
                                 </div>
                         </div>
-                    )
-                }}
-            </Consumer>
+                  
         )
     }
 }

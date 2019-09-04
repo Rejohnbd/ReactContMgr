@@ -1,8 +1,8 @@
 import React from 'react';
-import uuid from 'uuid';
+
 import axios from 'axios';
 import TextInputGroup from '../layout/TextInputGroup'
-import { Consumer } from '../../context';
+
 
 class EditContact extends React.Component {
     state = {
@@ -32,7 +32,7 @@ class EditContact extends React.Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    onSubmit = async (dispatch, e) => {
+    onSubmit = async ( e) => {
         e.preventDefault();
         const { name, email, phone } = this.state;
 
@@ -55,9 +55,7 @@ class EditContact extends React.Component {
             phone
         }
         
-        const { id } = this.props.match.params;
-        const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updContact);
-        dispatch({ type: 'UPDATE_CONTACT', payload: res.data })
+        
         
         // Clear State
         this.setState({
@@ -74,14 +72,11 @@ class EditContact extends React.Component {
         const { name, email, phone, errors }  = this.state;
 
         return (
-            <Consumer>
-                {value => {
-                    const { dispatch } = value;
-                    return (
+            
                         <div className="card mb-3">
                             <div className="card-header">Edit Contact</div>
                                 <div className="card-body">
-                                    <form onSubmit={this.onSubmit.bind(this, dispatch)}>
+                                    <form onSubmit={this.onSubmit.bind(this,)}>
                                         <TextInputGroup
                                             label="Name"
                                             type="text"
@@ -113,9 +108,7 @@ class EditContact extends React.Component {
                                     </form>
                                 </div>
                         </div>
-                    )
-                }}
-            </Consumer>
+                    
         )
     }
 }

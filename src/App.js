@@ -4,19 +4,19 @@ import Header from './components/layout/Header';
 import Contacts from './components/contacts/Contacts';
 import AddContact from './components/contacts/AddContact';
 import EditContact from './components/contacts/EditContact';
-import Test from './components/testLifeCycle/Test';
 
 import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
 
-import { Provider } from './context';
-
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
 function App() {
   return (
-    <Provider>
+    <Provider store={store}>
       <Router>
         <div className="App">
           <Header branding="Contact Manager" />
@@ -26,15 +26,12 @@ function App() {
               <Route exact path="/contact/add" component={AddContact} />
               <Route exact path="/contact/edit/:id" component={EditContact} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/test" component={Test} />
               <Route component={NotFound} />
-               {/* Send Param by URL
-              <Route exact path="/about/:id" component={About} /> */}
             </Switch>
           </div>
         </div>
       </Router>
-    </Provider>
+      </Provider>
   );
 }
 
