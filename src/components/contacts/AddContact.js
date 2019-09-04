@@ -52,6 +52,8 @@ class AddContact extends React.Component {
             phone: '',
             errors: {}            
         })
+        //Goto Home Page redirect
+        this.props.history.push('/');
     }
 
     render() {
