@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Consumer } from '../../context';
+import { async } from 'q';
 
 class Contact extends React.Component {
 
@@ -15,9 +16,9 @@ class Contact extends React.Component {
         })
     }
 
-    onDeleteClick = (id, dispatch) => {
-        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-            .then(res => dispatch({ type: 'DELETE_CONTACT', payload: id }) )
+    onDeleteClick = async (id, dispatch) => {
+        await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+        dispatch({ type: 'DELETE_CONTACT', payload: id })
 
     }
     
